@@ -1,0 +1,169 @@
+#hero
+	@include tile
+		
+	header
+		position: absolute
+		left: 50%
+		transform: translateX(-50%)
+		display: flex
+		width: 95%
+		height: 80px
+		align-items: center
+		justify-content: flex-end
+		z-index: 10
+			
+		.nav-toggle
+			position: relative
+			display: flex
+			width: 80px
+			align-items: center
+			justify-content: space-between
+			cursor: pointer
+			
+			p
+				margin-bottom: 0
+				font-size: 14px
+				font-family: $raleway
+				text-transform: uppercase
+				
+			span,
+			span:before,
+			span:after
+				content: ""
+				position: relative
+				display: block
+				width: 23px
+				height: 2px
+				background-color: $black
+				
+			span:before
+				bottom: 7px
+				
+			span:after
+				top: 5px
+				
+	.wrapper
+		@include wrapper
+			
+		.welcome
+			width: 35%
+		
+			//&:after
+				//content: ""
+				//display: block
+				//width: 1px
+				//height: 70px
+				//background-color: $black
+		
+			h2
+				@include heading
+				
+			p
+				max-width: 450px
+				margin-bottom: 30px
+				font-style: italic
+
+			.btn
+				display: inline-block
+				background-color: $blue
+				padding: 12px 25px
+
+				color: $white
+				text-decoration: none
+
+				border: none
+				border-radius: 0
+				
+				font-weight: 100
+				letter-spacing: 1px
+
+				transition: .3s
+
+				&:hover
+					background-color: darken($blue, 5%)
+
+				&:active
+					transform: translateY(3px)
+
+			@media (max-width: 1180px)
+				&:after .m
+					display: none
+					
+				p .m
+					margin-bottom: 0
+				
+		.services
+			width: 65%
+			display: flex
+			flex-wrap: wrap
+			justify-content: flex-end
+			
+		.services__item
+			width: 230px
+			height: 153px
+			overflow: hidden
+			position: relative
+
+			a
+				text-decoration: none
+
+				display: block
+				position: absolute
+				background-color: transparent
+
+				width: 100%
+				height: 100%
+
+				&::before
+					content: ""
+					opacity: 0
+
+					display: block
+					position: absolute
+					width: 100%
+					height: 100%
+
+					background: rgba(255, 255, 255, .8)
+					transition: .3s
+					z-index: 1
+
+			p 
+				font-size: 20px
+				color: $black
+				opacity: 0
+				transition: .3s
+
+				position: absolute
+				top: 50%
+				transform: translateY(-50%)
+
+				width: 100%
+				text-align: center
+
+				z-index: 2
+
+			img
+				width: 100%
+
+				z-index: 0
+
+			&:hover
+				a::before,
+				p
+					opacity: 1
+
+		@media (max-width: 1023px)
+			.welcome .m
+				display: flex
+				width: 100%
+				flex-direction: column
+				align-items: flex-end
+				text-align: right
+				
+			.photographer
+				display: none
+				
+		@media (max-width: 640px)
+			.welcome .m
+				align-items: center
+				text-align: center
